@@ -13,15 +13,15 @@
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" class="form-control">
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="logo">Logo</label>
                 <input type="file" name="logo" id="logo" class="form-control-file">
             </div>
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <label for="website">Website</label>
                 <input type="url" name="website" id="website" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-info mt-3">Create</button>
         </form>
     </div>
 @endsection

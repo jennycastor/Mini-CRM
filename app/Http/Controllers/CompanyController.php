@@ -7,6 +7,7 @@ use App\Models\Company;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\CompanyRequest;
 
+
 class CompanyController extends Controller
 {
     /**
@@ -39,12 +40,17 @@ class CompanyController extends Controller
             'website' => 'url',
         ]);
 
-        $request->file('logo')->store('public/company_logos');
-        // Save the company to the database
-        Company::create($request->all());
+        if ($request->hasFile('logo')) {
+            $request->file('logo')->store('public/company_logos');
+            // Perform additional actions or return a response
+        } else {
+            $nullImagePath = public_path('storage/company_logos/null_logo.png');
+            $filename = 'null_logo.png';
 
-        // Validation passed, continue processing
-        // Access validated data using $request->validated()
+            // Save the null image as the logo
+            Storage::disk('public')->put('storage/company_logos/' . $filename, file_get_contents($nullImagePath));
+
+        }
 
         // Example: Create a new company
         $company = Company::create($request->validated());

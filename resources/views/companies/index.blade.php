@@ -25,12 +25,12 @@
                         <td><img src="{{ asset('storage/company_logos/' . $company->logo) }}" alt="Company Logo" width="100" height="100"></td>
                         <td>{{ $company->website }}</td>
                         <td>
-                            <a href="{{ route('companies.show', $company) }}" class="btn btn-info btn-sm">View</a>
-                            <a href="{{ route('companies.edit', $company) }}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{{ route('companies.show', $company) }}" class="btn btn-info btn-m">View</a>
+                            <a href="{{ route('companies.edit', $company) }}" class="btn btn-primary btn-m">Edit</a>
                             <form action="{{ route('companies.destroy', $company) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this company?')">Delete</button>
+                                <button type="submit" class="btn btn-danger btn-m" onclick="return confirm('Are you sure you want to delete this company?')">Delete</button>
                             </form>
                         </td>
                     </tr>
